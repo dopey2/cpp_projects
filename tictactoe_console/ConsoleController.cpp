@@ -11,9 +11,15 @@ private:
   int menu = 0;
   int gamePlayed = 0;
   bool isRunning = true;
+  bool firstLoopFlag = true;
   GameController* gameController = nullptr;
 
   void handleKeyboardPress() {
+      if(this->firstLoopFlag) {
+          // skip the first loop to ignore the enter key from the program launch;
+          return;
+      }
+
       if(Keyboard::isUpArrowPressed()) {
           if(this->menu > 0) {
               menu--;
@@ -38,8 +44,6 @@ private:
       FG_COLOR quitColor = this->menu == 1 ? FG_MAGENTA : FG_DEFAULT;
 
       system("cls");
-
-
       std::string playStr = this->gamePlayed > 0 ? "Play Again" : "Play";
       logln(stringColor("1 - " + playStr, playColor));
       logln(stringColor("2 - Quit", quitColor));
@@ -63,6 +67,7 @@ public:
             this->handleKeyboardPress();
             this->draw();
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            this->firstLoopFlag = false;
         }
     }
 };
