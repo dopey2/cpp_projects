@@ -9,6 +9,7 @@ class ConsoleController {
 
 private:
   int menu = 0;
+  int gamePlayed = 0;
   bool isRunning = true;
   GameController* gameController = nullptr;
 
@@ -37,7 +38,10 @@ private:
       FG_COLOR quitColor = this->menu == 1 ? FG_MAGENTA : FG_DEFAULT;
 
       system("cls");
-      logln(stringColor("1 - Play", playColor));
+
+
+      std::string playStr = this->gamePlayed > 0 ? "Play Again" : "Play";
+      logln(stringColor("1 - " + playStr, playColor));
       logln(stringColor("2 - Quit", quitColor));
   }
 
@@ -53,6 +57,7 @@ public:
                 this->gameController->run();
                 delete this->gameController;
                 this->gameController = nullptr;
+                this->gamePlayed++;
             }
 
             this->handleKeyboardPress();
