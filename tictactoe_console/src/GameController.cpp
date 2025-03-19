@@ -122,7 +122,7 @@ private:
               this->boardValues[WINNABLE_INDEXES[i][0]] == this->boardValues[WINNABLE_INDEXES[i][1]] &&
               this->boardValues[WINNABLE_INDEXES[i][0]] == this->boardValues[WINNABLE_INDEXES[i][2]]
           ) {
-          return boardValues[0] == 'X' ? X_WIN : O_WIN;
+          return boardValues[i] == 'X' ? X_WIN : O_WIN;
           }
         }
 
