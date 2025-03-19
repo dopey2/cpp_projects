@@ -33,9 +33,9 @@ cd build
 cmake -G "MinGW Makefiles"
 ```
 
-Here we create a build folder tell cmake to generate a cmakefile for MinGW
+The command `cmake -G "MinGW Makefiles"` tell cmake to generate a cmakefile for MinGW
 
-**4) In your build directory build using:**
+**4) In your ./build folder run the following command to compile your code:**
 ```bash
 mingw32-make
 ```
