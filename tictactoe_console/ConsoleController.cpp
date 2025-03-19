@@ -37,17 +37,22 @@ private:
       FG_COLOR quitColor = this->menu == 1 ? FG_MAGENTA : FG_DEFAULT;
 
       system("cls");
-      std::cout << this->gameController << std::endl;
       logln(stringColor("1 - Play", playColor));
       logln(stringColor("2 - Quit", quitColor));
   }
 
 public:
+    ConsoleController() {
+         delete this->gameController;
+         this->gameController = nullptr;
+    }
+
     void run() {
         while(this->isRunning) {
             if(this->gameController != nullptr) {
                 this->gameController->run();
-                return;
+                delete this->gameController;
+                this->gameController = nullptr;
             }
 
             this->handleKeyboardPress();
