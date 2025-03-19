@@ -116,7 +116,9 @@ private:
     }
 
     int getGameStatus() {
-        for(int i = 0; i < 8; i++) {
+        const int length = sizeof(WINNABLE_INDEXES) / sizeof(WINNABLE_INDEXES[0]);
+
+        for(int i = 0; i < length; i++) {
           if(
               this->boardValues[WINNABLE_INDEXES[i][0]] != ' ' &&
               this->boardValues[WINNABLE_INDEXES[i][0]] == this->boardValues[WINNABLE_INDEXES[i][1]] &&
