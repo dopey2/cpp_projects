@@ -62,7 +62,7 @@ class GameController {
 
 private:
   	bool isRunning = false;
-    int gameSatus = ONGOING;
+    int gameStatus = ONGOING;
     char boardValues[9] = {};
     char player = 'X';
     int xCursor = 0;
@@ -70,6 +70,13 @@ private:
 
 
     void handleKeyboardPress() {
+        if(this->gameStatus != ONGOING) {
+          if(Keyboard::getLastKeyboardPressCode() != -1) {
+              this->isRunning = false;
+          }
+          return;
+        }
+
         if(Keyboard::isUpArrowPressed() && this->yCursor > 0) this->yCursor--;
         else if(Keyboard::isDownArrowPressed() && this->yCursor < 2) this->yCursor++;
         else if(Keyboard::isLeftArrowPressed() && this->xCursor > 0) this->xCursor--;
@@ -91,15 +98,15 @@ private:
     }
 
     std::string getGameInfoStr() {
-      if(this->gameSatus == ONGOING) {
+      if(this->gameStatus == ONGOING) {
        return "CURRENT PLAYER: " + std::string(1, this->player)+ "\n";
       }
 
-      if(this->gameSatus == X_WIN) {
+      if(this->gameStatus == X_WIN) {
         return "X WINS !\n";
       }
 
-      if(this->gameSatus == O_WIN) {
+      if(this->gameStatus == O_WIN) {
         return "O WINS !\n";
       }
 
@@ -113,6 +120,9 @@ private:
         std::string board = getGameBoard(this->boardValues, this->xCursor, this->yCursor, this->player);
         logln(gameInfo);
         logln(board);
+        if(this->gameStatus != ONGOING) {
+            logln("Press any key to continue...");
+        }
     }
 
     int getGameStatus() {
@@ -138,7 +148,7 @@ private:
     }
 
     void updateGameStatus() {
-        this->gameSatus = this->getGameStatus();
+        this->gameStatus = this->getGameStatus();
     }
 
 
