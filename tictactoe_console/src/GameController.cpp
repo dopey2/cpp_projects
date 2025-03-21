@@ -65,6 +65,7 @@ private:
     int gameStatus = ONGOING;
     char boardValues[9] = {};
     char player = 'X';
+    std::string moveError = "";
     int xCursor = 0;
     int yCursor = 0;
 
@@ -77,10 +78,19 @@ private:
           return;
         }
 
-        if(Keyboard::isUpArrowPressed() && this->yCursor > 0) this->yCursor--;
-        else if(Keyboard::isDownArrowPressed() && this->yCursor < 2) this->yCursor++;
-        else if(Keyboard::isLeftArrowPressed() && this->xCursor > 0) this->xCursor--;
-        else if(Keyboard::isRightArrowPressed() && this->xCursor < 2) this->xCursor++;
+        if(Keyboard::isUpArrowPressed() && this->yCursor > 0) {
+            this->yCursor--;
+            this->moveError = "";
+        } else if(Keyboard::isDownArrowPressed() && this->yCursor < 2) {;
+            this->yCursor++;
+            this->moveError = "";
+        } else if(Keyboard::isLeftArrowPressed() && this->xCursor > 0) {
+            this->xCursor--;
+            this->moveError = "";
+        } else if(Keyboard::isRightArrowPressed() && this->xCursor < 2) {
+            this->xCursor++;
+            this->moveError = "";
+        }
 
         if(Keyboard::isEscapePressed()) {
             this->isRunning = false;
@@ -91,6 +101,8 @@ private:
             if(this->boardValues[index] == ' ') {
                 this->boardValues[index] = this->player;
                 this->player = this->player == 'X' ? 'O' : 'X';
+            } else {
+                this->moveError = "Invalid input";
             }
         }
 
@@ -122,6 +134,9 @@ private:
         logln(board);
         if(this->gameStatus != ONGOING) {
             logln("Press any key to continue...");
+        }
+        if(this->moveError != "") {
+            logln(this->moveError);
         }
     }
 
