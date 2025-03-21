@@ -1,7 +1,6 @@
 ## FOR WINDOWS USERS
 
 
-
 ### A) Build using MINGW
 
 **1) Install MINGW https://www.mingw-w64.org/**
@@ -30,10 +29,10 @@ ___
 ```bash
 mkdir build
 cd build
-cmake -G "MinGW Makefiles"
+cmake -G "MinGW Makefiles" .. 
 ```
 
-The command `cmake -G "MinGW Makefiles"` tell cmake to generate a cmakefile for MinGW
+The command `cmake -G "MinGW Makefiles" ..` tell cmake to generate a cmakefile for MinGW
 
 **4) In your ./build folder run the following command to compile your code:**
 ```bash
