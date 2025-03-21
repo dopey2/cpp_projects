@@ -1,5 +1,4 @@
-#ifndef _H_KEYBOARD_
-#define _H_KEYBOARD_
+#pragma once
 
 #include <windows.h>
 
@@ -44,5 +43,3 @@ namespace Keyboard {
         return keyCode == 40;
     }
 };
-
-#endif

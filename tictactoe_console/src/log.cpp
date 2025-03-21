@@ -1,5 +1,4 @@
-#ifndef _H_LOG_
-#define _H_LOG_
+#pragma once
 
 #include <iostream>
 
@@ -35,5 +34,3 @@ void logln(std::string text) {
 std::string stringColor(std::string text, FG_COLOR fg_color, BG_COLOR bg_color = BG_DEFAULT) {
     return "\033[0;" + std::to_string(fg_color) + ";" + std::to_string(bg_color) + "m" + text + "\033[0m";
 }
-
-#endif
