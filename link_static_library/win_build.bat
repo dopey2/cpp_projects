@@ -1,0 +1,10 @@
+cd libs
+cd mylibA
+CALL win_build.bat
+cd ..
+cd mylibB
+CALL win_build.bat
+cd ..
+cd ..
+cd src
+CALL win_build.bat
