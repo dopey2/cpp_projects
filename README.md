@@ -4,7 +4,7 @@
 
 ### Samples
 
-- [How to manually link a static library ?](/link_static_library)
+- [How to manually link a static library ?](/link_static_library_manually)
 - [How to link a static library using CMake ?](/link_static_library_cmake)
 
 ### Projects
