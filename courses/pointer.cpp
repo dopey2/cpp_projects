@@ -17,7 +17,7 @@ int main() {
   std::cout << std::endl;
 
 
-  // ptr = &age;
+  ptr = &age;
   isPtr_nullptr = ptr == nullptr;
   std::cout << "is ptr nullptr ? " << isPtr_nullptr << std::endl;
 
