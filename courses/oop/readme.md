@@ -55,3 +55,74 @@ int main() {
   return 0;
 }
 ```
+
+### 3. Inheritance / Overriding function
+
+```c++
+#include <iostream>
+
+class Base {
+  public:
+    void foo() {
+      std::cout << "Base::foo" << std::endl;
+    }
+};
+
+
+class Derived : public Base {
+  public:
+    void foo() {
+      std::cout << "Derived::foo" << std::endl;
+    }
+};
+
+
+int main() {
+  Derived* derived = new Derived();
+  derived->foo();
+  
+  // liskov substitution example
+  Base* base_derived = new Derived();
+  base_derived();
+  return 0;
+}
+
+// output:
+// Derived::foo
+// Base::foo
+```
+
+### 4. Inheritance / Overriding functon and virtual keyword
+
+```c++
+#include <iostream>
+
+class Base {
+  public:
+    virtual void foo() {
+      std::cout << "Base::foo" << std::endl;
+    }
+};
+
+class DerivedA : public Base {
+  public:
+    void foo() {
+      std::cout << "Derived::fooA" << std::endl;
+    }
+};
+
+class DerivedB : public Base {};
+
+
+int main() {
+  Base* derivedA = new DerivedA();
+  Base* derivedB = new DerivedB();
+  derivedA->foo();
+  derivedB->foo();
+  return 0;
+}
+
+// output
+// Derived::fooA
+// Base::foo
+```

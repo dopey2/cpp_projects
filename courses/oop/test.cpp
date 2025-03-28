@@ -2,23 +2,26 @@
 
 class Base {
   public:
-    void foo() {
+    virtual void foo() {
       std::cout << "Base::foo" << std::endl;
     }
 };
 
+class DerivedA : public Base {
+  public:
+    void foo() {
+      std::cout << "Derived::fooA" << std::endl;
+    }
+};
 
-class DerivedDefault : Base {}; // private inheritance by default
-class DerivedPrivate : private Base {};
-class DerivedPublic : public Base {};
+class DerivedB : public Base {};
+
 
 
 int main() {
-  DerivedDefault* derived_default = new DerivedDefault();
-  DerivedPrivate* derived_private = new DerivedPrivate();
-  DerivedPublic* derived_public = new DerivedPublic();
-  derived_default->foo(); // <-- error: does not have access to foo
-  derived_private->foo(); // <-- error: does not have access to foo
-  derived_public->foo(); //  <-- ok
+  Base* derivedA = new DerivedA();
+  Base* derivedB = new DerivedB();
+  derivedA->foo();
+  derivedB->foo();
   return 0;
 }
