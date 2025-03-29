@@ -84,7 +84,7 @@ int main() {
 }
 ```
 
-### 4. Inheritance / Overriding function
+### 4. Inheritance - Overriding function
 
 ```c++
 #include <iostream>
@@ -120,7 +120,7 @@ int main() {
 // Base::foo
 ```
 
-### 5. Inheritance / Overriding functon and virtual keyword
+### 5. Inheritance - Overriding function and virtual keyword
 
 ```c++
 #include <iostream>
