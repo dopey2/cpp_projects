@@ -1,7 +1,71 @@
 
 ## Pointers 
 
-### 1. Pointer initialized as nullptr:
+### 1. Init a pointer
+
+```c++
+#include <iostream>
+
+int main () {
+  int val = 3;
+  int *ptr1 = &val;
+
+  std::cout << ptr1 << std::endl;
+  std::cout << *ptr1 << std::endl;
+  return 0;
+}
+
+// output:
+// 0x36d3dff934 <-- memory adress
+// 3
+```
+
+
+### 2. Value reassignment of a pointer
+
+```c++
+#include <iostream>
+
+int main () {
+  int val = 3;
+  int *ptr1 = &val;
+  *ptr1 = 5;
+  std::cout << ptr1 << std::endl;
+  std::cout << *ptr1 << std::endl;
+  std::cout << val << std::endl;
+  return 0;
+}
+
+// output:
+// 0xaa24dffc9c <-- memory adress
+// 5
+// 5
+
+```
+
+### 3. Value reassignment of a pointer of pointer
+
+```c++
+#include <iostream>
+
+int main () {
+  int val = 3;
+  int *ptr1 = &val;
+  int *ptr2 = ptr1;
+  *ptr2 = 7;
+  std::cout << ptr1 << std::endl;
+  std::cout << *ptr1 << std::endl;
+  std::cout << val << std::endl;
+  return 0;
+}
+
+// output:
+// 0xaa24dffc9c
+// 7
+// 7
+```
+
+### 4. Undefined pointer
 ```c++
 #include <iostream>
 
@@ -21,7 +85,10 @@ int main () {
 // false
 ```
 
-### 2 Pointer initialized as nullptr:
+### 5. Pointer initialized as nullptr:
+
+This is better than having undefined pointers
+
 ```c++
 #include <iostream>
 
