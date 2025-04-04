@@ -132,7 +132,7 @@ int main () {
 }
 ```
 
-### 6. Structure as const variable
+### 7. Structure as const variable
 
 ```c++
 struct User {
