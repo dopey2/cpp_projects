@@ -115,7 +115,11 @@ int main () {
 ```c++
 int main () {
   int *ptr = (int*) malloc(sizeof(int));
+  
+  std::cout << ptr << std::endl; //  unpredictable memory adress
+  std::cout << *ptr << std::endl; // unpredicatable value
+  
   *ptr = 7;
-  std::cout << *ptr << std::endl;
+  std::cout << *ptr << std::endl; // 7 
 }
 ```
