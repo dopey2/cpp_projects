@@ -107,3 +107,13 @@ int main () {
 // 0
 // true
 ```
+
+### 6. Heap allocation
+
+```c++
+int main () {
+  int *ptr = (int*) malloc(sizeof(int));
+  *ptr = 7;
+  std::cout << *ptr << std::endl;
+}
+```
