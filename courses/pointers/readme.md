@@ -108,7 +108,9 @@ int main () {
 // true
 ```
 
-### 6. Heap allocation
+### 6. Heap allocation / Dynamic allocation
+
+> In this example the memory is allocated during the runtime. Heap allocation is slower than stack allocation.
 
 ```c++
 int main () {
